@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        card_view:cardCornerRadius="0dp"
+        card_view:cardUseCompatPadding="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:id="@+id/tvPharmacyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#e74c3c" />
+
+            <TextView
+                android:id="@+id/tvPharmacyAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_location"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/tvPharmacyPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_call"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
