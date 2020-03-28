@@ -12,6 +12,7 @@ import org.jsoup.select.Elements;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class PharmacyTask extends AsyncTask<Void, Void, Void> {
 
@@ -45,14 +46,14 @@ public class PharmacyTask extends AsyncTask<Void, Void, Void> {
         try {
             pharmacyItems.remove(pharmacyItems);
             doc = Jsoup.connect(url).ignoreContentType(true).get();
-            for (Element row : doc.select("div.col-sm-6")) {
-                Elements panel = row.select("div.panel-body");
-                Elements strong = row.select("div.panel-heading");
-                address = panel.text().substring(0, panel.text().indexOf("Tel :") - 22);
-                phone = panel.text().substring(panel.text().indexOf("Tel :") + 6, panel.text().indexOf("HAR"));
-                PharmacyModel item = new PharmacyModel(strong.text(), address, phone);
+            for (Element row : doc.select("div.col")) {
+                Elements header = row.select("div.card-header");
+                Elements body = row.select("div.card-body");
+                address = body.text().substring(0, body.text().indexOf("©"));
+                phone = body.text().substring(body.text().indexOf("Tel :") + 6, body.text().indexOf("Tel :") + 21);
+                PharmacyModel item = new PharmacyModel(header.text(), address, phone);
                 pharmacyItems.add(item);
-                pharmacy = strong.text();
+                pharmacy = header.text();
             }
         } catch (IOException e) {
             e.printStackTrace();
