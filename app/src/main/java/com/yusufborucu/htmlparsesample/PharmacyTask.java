@@ -49,7 +49,7 @@ public class PharmacyTask extends AsyncTask<Void, Void, Void> {
             for (Element row : doc.select("div.col")) {
                 Elements header = row.select("div.card-header");
                 Elements body = row.select("div.card-body");
-                address = body.text().substring(0, body.text().indexOf("©"));
+                address = body.text().substring(0, body.text().indexOf("Harita"));
                 phone = body.text().substring(body.text().indexOf("Tel :") + 6, body.text().indexOf("Tel :") + 21);
                 PharmacyModel item = new PharmacyModel(header.text(), address, phone);
                 pharmacyItems.add(item);
